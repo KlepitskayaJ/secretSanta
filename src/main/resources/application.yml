@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    username: postgres
+    password: 1234
+    url: jdbc:postgresql://localhost:5432/secret_santa
+  jpa:
+    hibernate:
+#      ddl-auto: create
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db-changelog.yml
+    url: jdbc:postgresql://localhost:5432/secret_santa
+    user: postgres
+    password: 1234
+
